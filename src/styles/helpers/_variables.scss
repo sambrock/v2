@@ -1,0 +1,51 @@
+// @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap');
+
+$white: #f2f4f5;
+$black: #121215;
+$grey: #44434c;
+$whiteTransparent: rgba(242, 244, 245, .7);
+$greyTransparent: rgba(68, 67, 76, .3);
+
+@font-face {
+  font-family: "Artico";
+  src: url("../fonts/Artico.woff") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Artico Medium";
+  src: url("../fonts/Artico-Medium.woff") format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Artico Bold";
+  src: url("../fonts/Artico-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+$regular: 'Artico';
+$medium: 'Artico Medium';
+$bold: 'Artico Bold';
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-family: $bold;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 3.8rem;
+  letter-spacing: -.7px;
+}
+
+p {
+  line-height: 1.4em;
+  letter-spacing: -.2px;
+}
+
+@mixin projectTitle {
+  font-family: $bold;
+  font-weight: 700;
+}

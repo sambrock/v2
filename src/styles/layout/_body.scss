@@ -1,0 +1,81 @@
+html,
+body {
+  font-family: 'Artico', Helvetica, sans-serif;
+  background: $white;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  overflow: hidden;
+  color: $grey;
+  -webkit-font-smoothing: antialiased!important;
+
+  header {
+    padding: 3.5rem;
+
+    .logo {
+      height: 4.5em;
+      user-select: none;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh);
+  width: 100vw;
+
+  .overview,
+  .projects {
+    width: 50vw;
+  }
+
+  .overview {
+    display: flex;
+    flex-direction: column;
+    padding: 3.5rem;
+
+    .intro {
+      align-items: middle;
+      margin: auto 0;
+
+      h1 {
+        margin: 0 0 .5em 0;
+      }
+
+      p {
+        max-width: 25vw;
+      }
+    }
+
+    .social-links {
+      a {
+        margin: 0 12px 0 0;
+
+        img {
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  .projects {
+    // background: $orange;
+  }
+}
+
+.project-img {
+  position: absolute;
+  right: -12%;
+
+  top: 50%;
+  margin-top: -38vh;
+
+  img {
+    height: 75vh;
+  }
+}
