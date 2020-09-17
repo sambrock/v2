@@ -5,6 +5,7 @@ $black: #121215;
 $grey: #44434c;
 $whiteTransparent: rgba(242, 244, 245, .7);
 $greyTransparent: rgba(68, 67, 76, .3);
+$whiteTransparentBG: rgba(242, 244, 245, .4);
 
 @font-face {
   font-family: "Artico";
@@ -45,7 +46,12 @@ p {
   letter-spacing: -.2px;
 }
 
-@mixin projectTitle {
+@mixin title {
   font-family: $bold;
   font-weight: 700;
+}
+
+@mixin subTitle {
+  font-family: $medium;
+  font-weight: 600;
 }
