@@ -104,3 +104,53 @@
     }
   }
 }
+
+.scroll-indicator{
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-size: .8em;
+  @include subTitle();
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &.hide {
+    display: none;
+  }
+
+  .indicator {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: $whiteTransparentBG;
+    height: 35px;
+    margin-top: 11px;
+
+    span {
+      position: absolute;
+      height: 60%;
+      width: 100%;
+      background: $white;
+      left: 0px;
+      top: 0px;
+      margin: 0px;
+      animation: scroll 1s infinite linear;
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(0%)
+        }
+
+        50% {
+          transform: translateY(100%)
+        }
+
+        100% {
+          transform: translateY(0%)
+        }
+      }
+    }
+  }
+}

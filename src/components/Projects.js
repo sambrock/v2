@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 import ProjectSlide from './ProjectSlide';
-
-import PortfolioProjects from '../json/projects.json';
 import Pagination from './Pagination';
 
 export default function Projects({ data }) {
   const [projects, setProjects] = useState(null);
-  // const [scroll, setScroll] = useState(null);
   const [active, setActive] = useState(0);
   const [animate, setAnimate] = useState({ index: active, type: 'in', direction: 'down' });
 
@@ -47,7 +44,7 @@ export default function Projects({ data }) {
               isActive={index === active}
               animate={animate}
               current={active + 1}
-              count={projects.length}
+              indicator={index === 0}
             />
           )
         })}
