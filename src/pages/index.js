@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React from 'react'
 import Header from '../components/Header';
 import Projects from '../components/Projects';
@@ -5,7 +6,7 @@ import SocialLinks from '../components/SocialLinks';
 
 import '../styles/main.scss';
 
-export default function Home() {
+export default function Index({ data }) {
   return (
     <main>
       <Header />
@@ -19,8 +20,25 @@ export default function Home() {
           </div>
           <SocialLinks />
         </section>
-        <Projects />
+        <Projects data={data.projects.edges} />
       </div>
     </main>
   )
 }
+
+export const query = graphql`
+query IndexQuery {
+  projects: allProjectsJson {
+    edges {
+      node {
+        title
+        type
+        projectSlideImg
+        shortDescription
+        completed
+        url
+        color
+      }
+    }
+  }
+}`;
