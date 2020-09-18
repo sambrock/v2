@@ -15,7 +15,9 @@ export const projectSlideAnimateIn = scroll => {
 
   tl.fromTo('.project-slide.active .project-slide__mask', .6, { webkitClipPath: polygonIn[scroll], ease: "Power2.easeInOut" }, { webkitClipPath: polygonIn.end, ease: "Power2.easeInOut" })
     .staggerFromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__info > div.to-animate', .6, { opacity: 0, y: '-30', ease: "Power2.easeInOut" }, { opacity: 1, y: '0', ease: "Power2.easeInOut" }, .05, delay)
-    .staggerFromTo(['.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img .gatsby-image-wrapper', '.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img'], .6, { y: imgYIn[scroll], ease: "Power1.easeInOut" }, { y: '0', ease: "Power1.easeInOut" }, 0.1, 0)
+    // .staggerFromTo(['.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img .gatsby-image-wrapper', '.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img'], .6, , 0.1, 0)
+    .staggerFromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.phone .gatsby-image-wrapper', .6, { y: imgYIn[scroll], ease: "Power1.easeInOut" }, { y: '0', ease: "Power1.easeInOut" }, 0.1, 0)
+    .fromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.web', .6, { y: imgYIn[scroll], ease: "Power1.easeInOut" }, { y: '0', ease: "Power1.easeInOut" }, 0.1, 0);
 
   return tl;
 }
@@ -27,7 +29,28 @@ export const projectSlideAnimateOut = scroll => {
 
   tl.fromTo('.project-slide.active .project-slide__mask', .6, { webkitClipPath: polygonOut.start, ease: "Power2.easeInOut" }, { webkitClipPath: polygonOut[scroll], ease: "Power2.easeInOut" })
     .staggerTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__info > div.to-animate', .6, { opacity: 0, y: '30', ease: "Power2.easeInOut" }, .03, delay)
-    .staggerFromTo(['.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img .gatsby-image-wrapper', '.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img'], .6, { y: '0', ease: "Power1.easeInOut" }, { y: imgYOut[scroll], ease: "Power1.easeInOut" }, 0.1, 0)
+    .staggerFromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.phone .gatsby-image-wrapper', .6, { y: '0', ease: "Power1.easeInOut" }, { y: imgYOut[scroll], ease: "Power1.easeInOut" }, 0.1, 0)
+    .fromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.web', .6, { y: '0', ease: "Power1.easeInOut" }, { y: imgYOut[scroll], ease: "Power1.easeInOut" }, 0.1, 0);
+
+  return tl;
+}
+
+export const projectSlideAnimateHoverIn = () => {
+  const tl = new TimelineMax({ paused: true });
+
+  tl.staggerTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.phone .gatsby-image-wrapper', .4, { x: -30, ease: "Power1.easeInOut" }, 0.1, 0)
+  .to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.web', .3,  { x: -30, ease: "Power1.easeInOut" }, 0)  
+  .to('.projects', .3, { width: '105%', ease: "Power1.easeInOut"}, 0)
+
+  return tl;
+}
+
+export const projectSlideAnimateHoverOut = () => {
+  const tl = new TimelineMax({ paused: true });
+
+  tl.staggerTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.phone .gatsby-image-wrapper', .4, { x: 0, ease: "Power1.easeInOut" }, 0.1, 0)
+  .to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.web', .3,  { x: 0, ease: "Power1.easeInOut" }, 0)  
+  .to('.projects', .3, { width: '100%', ease: "Power1.easeInOut"}, 0)
 
   return tl;
 }
