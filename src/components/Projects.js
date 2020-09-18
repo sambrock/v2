@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import ProjectSlide from './projectSlide';
 
-import ProjectSlide from './ProjectSlide';
-import Pagination from './Pagination';
-
-export default function Projects({ data }) {
+export default function Projects({ data, setAccent }) {
   const [projects, setProjects] = useState(null);
   const [active, setActive] = useState(0);
   const [animate, setAnimate] = useState({ index: active, type: 'in', direction: 'down' });
@@ -30,12 +28,15 @@ export default function Projects({ data }) {
     }, 600)
   }
 
+  useEffect(() => {
+    if(projects) setAccent(projects[active].node.color);
+  }, [projects, active])
+
   if (!projects) return <div></div>;
 
   return (
     <div class="projects-container">
-      <Pagination />
-      <ReactScrollWheelHandler className="projects" upHandler={(e) => handleNavigation('up')} downHandler={(e) => handleNavigation('down')} >
+      <ReactScrollWheelHandler className="projects" upHandler={() => handleNavigation('up')} downHandler={() => handleNavigation('down')} >
         {projects.map((projectNode, index) => {
           const project = projectNode.node;
           return (
@@ -48,6 +49,7 @@ export default function Projects({ data }) {
             />
           )
         })}
+        <div className="project-slide__count bg-count animating" ><span className="count">{((active + 1).toString().length < 2) ? `0${active + 1}` : active + 1}.</span></div>
       </ReactScrollWheelHandler>
     </div>
   )
