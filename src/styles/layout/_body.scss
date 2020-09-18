@@ -54,7 +54,7 @@ body {
 
     .social-links {
       a {
-        margin: 0 12px 0 0;
+        margin: 0 1rem 0 0;
 
         img {
           height: 24px;
@@ -63,8 +63,20 @@ body {
     }
   }
 
-  .projects {
-    // background: $orange;
+  a{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .btn {
+    border: 1px $orange solid;
+    color: $grey;
+    padding: 12px 14px;
+    display: inline-block;
+    margin-top: 12px;
+    @include btn();
+    transition: all .5 ease;
   }
 }
 
