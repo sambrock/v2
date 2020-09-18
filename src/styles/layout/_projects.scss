@@ -5,6 +5,8 @@
     opacity: 0;
     display: none;
     position: relative;
+    cursor: pointer;
+
 
     &.active {
       opacity: 1;
@@ -15,12 +17,13 @@
       position: absolute;
       font-family: $bold;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      right: 0;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
 
       img {
-        width: calc(50vw);
+        height: 100vh;
       }
     }
 
@@ -33,6 +36,7 @@
 
       .project-slide__img {
         margin: 3.5rem 0 0 3.5rem;
+        width: calc(100% + 35px);
 
         img {
           height: 100%;
@@ -40,19 +44,28 @@
 
         &.phone {
           // width: 40%;
+          display: flex;
+          // justify-content: flex-start;
+          // margin: 3.5rem 0 0 0;
+          position: relative;
 
           .gatsby-image-wrapper {
             height: 100%;
             width: 100%;
             position: absolute !important;
           }
-          
-          img{
-            // position: absolute;
+
+          img {
+            height: 100%;
           }
 
+          .gatsby-image-wrapper:nth-child(1) {
+            margin: 0 0 0 3.5rem;
+          }
+
+
           .gatsby-image-wrapper:nth-child(2) {
-            left: 32%;
+            left: 36%;
           }
 
           .gatsby-image-wrapper:nth-child(3) {
@@ -67,7 +80,8 @@
         grid-template-rows: auto auto;
         margin: 3.5rem;
         z-index: 4;
-        
+        position: relative;
+
         .project-slide__title {
           font-size: 2.5em;
           margin: 0 24px 0 0;
@@ -90,14 +104,18 @@
           display: flex;
           align-items: center;
           grid-column: 3;
-          grid-row: 1 / span 2; 
-          @include title();
+          grid-row: 1 / span 2;
+          @include count();
 
+          &.animating {
+            color: $greyTransparent;
+            bottom: 3.5rem;
+            right: 3.5rem;
+          }
+          
           .count {
-            font-size: 5em;
-            line-height: 0;
-            margin-right: 6px;
             color: $whiteTransparentBG;
+            line-height: 0;
           }
         }
       }
@@ -105,14 +123,15 @@
   }
 }
 
-.scroll-indicator{
-  grid-column: 2;
+.scroll-indicator {
+  // grid-column: 2;
   grid-row: 1 / span 2;
   font-size: .8em;
   @include subTitle();
   position: absolute;
-  bottom: 0;
+  bottom: 1.5rem;
   left: 50%;
+  bottom: -30px;
   transform: translate(-50%, -50%);
 
   &.hide {
@@ -153,4 +172,14 @@
       }
     }
   }
+}
+
+.bg-count {
+  position: absolute;
+  bottom: 2.7rem;
+  right: 3.5rem;
+  @include count();
+  color: $greyTransparent;
+  z-index: -10;
+  transition: color .5 ease-in-out;
 }
