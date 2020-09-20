@@ -31,7 +31,7 @@ const Image = props => (
       });
 
       return !image ? null : (
-        <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} className={props.classes} imgStyle={{height: false, width: false, left: false}}/>
+        <Img alt={props.alt} fluid={image.node.childImageSharp.fluid} className={props.classes} imgStyle={{height: false, width: false, left: false, position: false}}/>
       )
     }}
   />
