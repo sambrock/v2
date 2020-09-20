@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React, { useState } from 'react'
 import Layout from '../components/layouts/layout';
 import Projects from '../components/projects';
-import SocialLinks from '../components/socialLinks';
+import SocialLinks from '../components/social-links';
 
 import '../styles/main.scss';
 
@@ -35,7 +35,6 @@ query IndexQuery {
       node {
         title
         type
-        projectSlideImg
         shortDescription
         completed
         url
@@ -43,4 +42,5 @@ query IndexQuery {
       }
     }
   }
-}`;
+}
+`;
