@@ -1,0 +1,128 @@
+.project {
+  .project__hero {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    .project__logo {
+      margin: auto;
+      height: 20vh;
+      grid-row: 1;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .project__mainimg {
+      margin: 0 auto;
+      height: 55vh;
+      width: 80vw;
+      grid-row: 2;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .project__info {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr .5fr;
+
+    .project__sub-heading {
+      margin: 0 3.5rem 0 0;
+    }
+
+    .project__description {
+      margin: 0;
+      grid-column: span 2;
+    }
+
+    .project__info-items {
+      margin: 3.5rem 0 0 0;
+      grid-column: 2;
+      grid-row: 2;
+      display: flex;
+
+      .project__info-item {
+        margin: 0 3.5rem 0 0;
+
+        h3 {
+          margin: 0 0 .75rem 0;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+
+          li {
+            list-style-type: none;
+            margin: 0 0 .3525rem 0;
+          }
+        }
+
+        .project__tech-list {
+          display: flex;
+          align-items: center;
+
+          .tech {
+            margin: 0 .75rem 0 0;
+
+            &.no-icon {
+              margin: 0 .75rem 5px 0;
+              font-size: .9em;
+              font-family: $medium;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+  .project__btns {
+    margin: 3.5rem 0 0 auto;
+    grid-column: 3;
+    grid-row: 2;
+
+    .project__launch-btn {
+      // border: 1px red solid;
+    }
+  }
+}
+
+.project__images {
+  padding: 5rem 0;
+  background: $greyTransparent2;
+
+  .project__img {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.tech-icon-tooltip {
+  background: $grey !important;
+  color: $white !important;
+  border-radius: 0px !important;
+  font-family: $medium;
+  
+  .place-bottom::after {
+    border-bottom-color: $white !important;
+  }
+
+}
+
+.tech-icon {
+  height: 1.75em;
+  fill: $grey;
+}

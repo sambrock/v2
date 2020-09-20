@@ -5,11 +5,11 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  overflow: hidden;
   color: $grey;
   -webkit-font-smoothing: antialiased !important;
 
   header {
+    position: fixed;
     padding: 3.5rem;
 
     .logo {
@@ -28,6 +28,7 @@ body {
   right: 0;
   height: calc(100vh);
   width: 100vw;
+  overflow: hidden;
 
   .overview,
   .projects {
@@ -63,21 +64,18 @@ body {
     }
   }
 
-  a{
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-  }
 
-  .btn {
-    border: 1px $orange solid;
-    color: $grey;
-    padding: 12px 14px;
-    display: inline-block;
-    margin-top: 12px;
-    @include btn();
-    transition: all .5 ease;
-  }
+
+}
+
+.btn {
+  color: $grey;
+  padding: 12px 14px;
+  display: inline-block;
+  margin-top: 12px;
+  @include btn();
+  transition: all .5 ease;
+  font-size: .9em;
 }
 
 .project-img {
@@ -90,4 +88,10 @@ body {
   img {
     height: 75vh;
   }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
