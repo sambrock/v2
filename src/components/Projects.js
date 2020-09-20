@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import ProjectSlide from './projectSlide';
+import ProjectSlide from './project-slide';
 
 export default function Projects({ data, setAccent }) {
   const [projects, setProjects] = useState(null);
