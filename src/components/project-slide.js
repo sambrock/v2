@@ -11,7 +11,7 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
 
   useEffect(() => {
     projectSlideAnimateHoverOut().play();
-    
+
     if (animate.type === 'in') projectSlideAnimateIn(animate.direction).play();
     if (animate.type === 'out') projectSlideAnimateOut(animate.direction).play();
   }, [isActive, animate])
@@ -24,13 +24,13 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
         <div className="project-slide__logo"><img src={LogoWT} /></div>
         <div className="project-slide__bg" style={{ background: `${project.color}` }} onMouseEnter={() => projectSlideAnimateHoverIn().play()} onMouseLeave={() => projectSlideAnimateHoverOut().play()}>
           {project.type === 'web' && (
-            <Image filename={project.projectSlideImg} alt={project.title} classes="project-slide__img web" />
+            <Image filename={`project-slide__${project.title}.png`} alt={project.title} classes="project-slide__img web" />
           )}
           {project.type === 'phone' && (
             <div className="project-slide__img phone">
-              <Image filename={project.projectSlideImg + '-1.png'} alt={project.title} />
-              <Image filename={project.projectSlideImg + '-2.png'} alt={project.title} />
-              <Image filename={project.projectSlideImg + '-3.png'} alt={project.title} />
+              <Image filename={`project-slide__${project.title}-1.png`} alt={project.title} />
+              <Image filename={`project-slide__${project.title}-2.png`} alt={project.title} />
+              <Image filename={`project-slide__${project.title}-3.png`} alt={project.title} />
             </div>
           )}
           <div className="project-slide__info">
