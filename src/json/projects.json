@@ -2,18 +2,19 @@
     "id": 1,
     "title": "Filmlist",
     "type": "web",
-    "projectSlideImg": "project-slide__filmlist.png",
     "shortDescription": "React.js + Node.js web app",
     "description": null,
-    "completed": "2020-08-24",
+    "completed": "2020",
     "url": "http://filmlist-app.herokuapp.com/",
-    "color": "#F27405"
+    "github": "https://github.com/SamBrock/filmlist",
+    "color": "#F27405",
+    "role": ["UX", "Logo Deisgn", "Development"],
+    "tech": ["react", "node", "express", "mongodb", "tmdb api"]
   },
   {
     "id": 2,
     "title": "Pace",
     "type": "phone",
-    "projectSlideImg": "project-slide__pace",
     "shortDescription": "Companion app design",
     "description": null,
     "completed": "2018-12-01",
@@ -24,7 +25,6 @@
     "id": 4,
     "title": "INFLOWSEM",
     "type": "web",
-    "projectSlideImg": "project-slide__inflowsem.png",
     "shortDescription": "",
     "description": null,
     "completed": "2020-05-01",
@@ -35,11 +35,15 @@
     "id": 3,
     "title": "TRYP",
     "type": "web",
-    "projectSlideImg": "project-slide__tryp.png",
-    "shortDescription": "",
+    "shortDescription": "Holiday web designs website",
     "description": null,
-    "completed": "2019-04-01",
-    "url": null,
-    "color": "#2BC4F4"
+    "completed": "2019",
+    "url": "/sketchbooks/tryp.pdf",
+    "github": null,
+    "color": "#2BC4F4",
+    "role": ["UX", "Brand Identity", "Web Design"],
+    "tech": ["photoshop", "illustrator", "protopie"],
+    "images": ["project__tryp-home.jpg", "project__tryp-details.jpg"],
+    "protopie": "https://cloud.protopie.io/p/6y28LhBM3TK"
   }
 ]
