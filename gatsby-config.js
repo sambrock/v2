@@ -23,6 +23,18 @@ module.exports = {
         path: `${__dirname}/src/json/`,
       },
     },
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve(`./src/components/layouts/layout.js`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layouts/layout.js`),
+      },
+    }
   ],
 }
