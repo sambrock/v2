@@ -24,6 +24,41 @@
       img {
         width: 100%;
       }
+
+      &.phone {
+        // width: 40%;
+        display: flex;
+        justify-content: center;
+        // margin: 3.5rem 0 0 0;
+        position: relative;
+        height: 55vh;
+        // border: 1px red solid;
+        width: 50vw;
+
+        .gatsby-image-wrapper {
+          // position: absolute !important;
+          // width: 80%;
+          // border: 1px red solid;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        .gatsby-image-wrapper:nth-child(1) {
+          margin-top: 8%;
+        }
+
+        .gatsby-image-wrapper:nth-child(2) {
+          margin-left: -8%;
+          z-index: 3;
+        }
+
+        .gatsby-image-wrapper:nth-child(3) {
+          margin-top: 8%;
+          margin-left: -8%;
+        }
+      }
     }
   }
 
@@ -89,24 +124,54 @@
     margin: 3.5rem 0 0 auto;
     grid-column: 3;
     grid-row: 2;
-
-    .project__launch-btn {
-      // border: 1px red solid;
-    }
   }
 }
 
 .project__images {
-  padding: 5rem 0;
-  background: $greyTransparent2;
+  padding: 2.25rem 0;
+  background: $white;
 
   .project__img {
-    max-width: 1100px;
+    padding: 2.25rem 0;
+    max-width: 1300px;
     margin: 0 auto;
 
     img {
       width: 100%;
     }
+  }
+
+  .project__fluid-img {
+    margin: 2.25rem 0 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+.project__phone-images {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.25rem 0;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  .project__img {
+    max-width: 375px;
+    margin: 0;
+  }
+}
+  
+}
+
+.project__videos {
+  padding: 5rem 0;
+  background: $greyTransparent2;
+
+  .project__vid {
+    display: block;
+    max-width: 1300px;
+    margin: 0 auto;
   }
 }
 
@@ -115,7 +180,7 @@
   color: $white !important;
   border-radius: 0px !important;
   font-family: $medium;
-  
+
   .place-bottom::after {
     border-bottom-color: $white !important;
   }

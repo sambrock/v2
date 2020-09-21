@@ -11,6 +11,7 @@ body {
   header {
     position: fixed;
     padding: 3.5rem;
+    z-index: 10;
 
     .logo {
       height: 4.5em;
@@ -22,10 +23,7 @@ body {
 .container {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   height: calc(100vh);
   width: 100vw;
   overflow: hidden;
@@ -76,6 +74,12 @@ body {
   @include btn();
   transition: all .5 ease;
   font-size: .9em;
+}
+
+.btn.no-border {
+  border: none;
+  padding: 12px 0 12px 14px;
+  color: $greyTransparent3;
 }
 
 .project-img {

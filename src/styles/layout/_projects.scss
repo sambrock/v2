@@ -4,9 +4,11 @@
   .project-slide {
     opacity: 0;
     display: none;
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
     cursor: pointer;
-
 
     &.active {
       opacity: 1;
@@ -33,10 +35,14 @@
       width: 100%;
       grid-template-rows: 70fr 1fr;
       box-sizing: border-box;
+      z-index: 10;
+      // position: absolute;
+      // right: 0;
 
       .project-slide__img {
         margin: 3.5rem 0 0 3.5rem;
         width: calc(100% + 35px);
+        // border: 1px blue solid;
 
         img {
           height: 100%;
@@ -62,7 +68,6 @@
           .gatsby-image-wrapper:nth-child(1) {
             margin: 0 0 0 3.5rem;
           }
-
 
           .gatsby-image-wrapper:nth-child(2) {
             left: 36%;
@@ -112,7 +117,7 @@
             bottom: 3.5rem;
             right: 3.5rem;
           }
-          
+
           .count {
             color: $whiteTransparentBG;
             line-height: 0;
