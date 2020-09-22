@@ -15,21 +15,25 @@
     "id": 2,
     "title": "Pace",
     "type": "phone",
-    "shortDescription": "Companion app design",
+    "shortDescription": "Prototype 5-a-side booking app",
     "description": null,
-    "completed": "2018-12-01",
-    "url": null,
-    "color": "#1DB954"
+    "completed": "2018",
+    "url": "/sketchbooks/pace.pdf",
+    "color": "#1DB954",
+    "role": ["UX", "Brand Identity"],
+    "tech": ["illustrator", "protopie"]
   },
   {
     "id": 4,
     "title": "INFLOWSEM",
     "type": "web",
-    "shortDescription": "",
+    "shortDescription": "Website for research group at University",
     "description": null,
-    "completed": "2020-05-01",
-    "url": "https://inflowsem.hud.ac.uk",
-    "color": "#0054E0"
+    "completed": "2020",
+    "url": "http://inflowsem.hud.ac.uk/",
+    "color": "#0054E0",
+    "role": ["Web Design", "Development"],
+    "tech": ["gulp", "bootstrap"]
   },
   {
     "id": 3,
@@ -42,8 +46,6 @@
     "github": null,
     "color": "#2BC4F4",
     "role": ["UX", "Brand Identity", "Web Design"],
-    "tech": ["photoshop", "illustrator", "protopie"],
-    "images": ["project__tryp-home.jpg", "project__tryp-details.jpg"],
-    "protopie": "https://cloud.protopie.io/p/6y28LhBM3TK"
+    "tech": ["photoshop", "illustrator", "protopie"]
   }
 ]
