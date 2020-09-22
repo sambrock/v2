@@ -4,6 +4,7 @@ import ReactTooltip from 'react-tooltip';
 import NodeIcon from './images/node';
 import ReactIcon from './images/react';
 import MongoDBIcon from './images/mongodb';
+import GulpIcon from './images/gulp';
 import IllustratorIcon from './images/illustrator';
 import PhotoshopIcon from './images/photoshop';
 
@@ -21,6 +22,10 @@ export default function TechIcon({ items }) {
       <ReactTooltip className="tech-icon-tooltip" />
       {items.includes('mongodb') && (
         <a href="https://www.mongodb.com/" target="__blank" data-tip="MongoDB" data-place="bottom" className="tech"><MongoDBIcon classes="tech-icon" /></a>
+      )}
+      <ReactTooltip className="tech-icon-tooltip" />
+      {items.includes('gulp') && (
+        <a href="https://gulpjs.com/" target="__blank" data-tip="gulp.js" data-place="bottom" className="tech" className="tech"><GulpIcon classes="tech-icon" /></a>
       )}
       <ReactTooltip className="tech-icon-tooltip" />
       {items.includes('illustrator') && (
