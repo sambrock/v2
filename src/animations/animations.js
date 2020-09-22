@@ -59,6 +59,7 @@ export const projectSlideLinkAnimate = (height, width) => {
 
   tl.to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img', 1, { x: width, ease: "Power2.easeInOut", opacity: 0 }, 0)
     .to('.project-slide__logo', 1, { opacity: 0, ease: "Power2.easeInOut" }, 0)
+    .to('.overview', .3, { opacity: 0, ease: "Power2.easeInOut" }, 0.5)
     .to('.project-slide.active .project-slide__mask', .7, { width: width, float: 'right', ease: "Power2.easeInOut" }, .3)
     .to('.scroll-indicator', .4, { opacity: 0, y: '30', ease: "Power2.easeInOut" }, 0)
     .to('.project-slide__count ', .4, { opacity: 0, y: '-30', ease: "Power2.easeInOut" }, 0)
@@ -72,6 +73,15 @@ export const projectPageAnimateIn = (height) => {
   tl.fromTo('.project__mainimg', .6, { opacity: 1, y: height * 0.5, ease: "Power2.easeInOut" }, { y: 0, ease: "Power2.easeInOut" }, 0)
     .staggerFromTo('.project__mainimg > div', .6, { opacity: 1, y: height * 0.5, ease: "Power2.easeInOut" }, { y: 0, ease: "Power2.easeInOut" }, 0.1, 0)
     .fromTo('.project__logo', .6, { opacity: 0, y: height * 0.5, ease: "Power2.easeInOut" }, { opacity: 1, y: 0, ease: "Power2.easeInOut" }, 0.2, 0)
+
+  return tl;
+}
+
+export const projectSlideLinkMobileAnimate = (el, height, width) => {
+  const tl = new TimelineMax({ paused: true });
+
+  tl.fromTo('.page__mask', 1, { webkitClipPath: polygonIn.down, ease: "Power2.easeInOut" }, { webkitClipPath: polygonIn.end, ease: "Power2.easeInOut" }, 0)
+    .fromTo('.page__mask', 1, { webkitClipPath: polygonIn.end, ease: "Power2.easeInOut" }, { webkitClipPath: polygonIn.up, ease: "Power2.easeInOut" })
 
   return tl;
 }
