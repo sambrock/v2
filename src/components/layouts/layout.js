@@ -6,6 +6,7 @@ export default function Layout({ children }) {
     <div>
       <Header />
       {children}
+      <div className="page__mask"></div>
     </div>
   )
 }
