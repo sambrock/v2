@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import ProjectSlide from './project-slide';
 
-export default function Projects({ data, setAccent }) {
+export default function Projects({ data, setAccent, isMobile }) {
   const [projects, setProjects] = useState(null);
   const [active, setActive] = useState(0);
   const [animate, setAnimate] = useState({ index: active, type: 'in', direction: 'down' });
@@ -12,6 +12,8 @@ export default function Projects({ data, setAccent }) {
   }, [data])
 
   const handleNavigation = (scroll) => {
+    if(isMobile) return;
+    
     let next = active;
 
     if (scroll === 'up') next--;
@@ -29,7 +31,7 @@ export default function Projects({ data, setAccent }) {
   }
 
   useEffect(() => {
-    if(projects) setAccent(projects[active].node.color);
+    if (projects) setAccent(projects[active].node.color);
   }, [projects, active])
 
   if (!projects) return <div></div>;
@@ -49,7 +51,7 @@ export default function Projects({ data, setAccent }) {
             />
           )
         })}
-        <div className="project-slide__count bg-count animating" ><span className="count">{((active + 1).toString().length < 2) ? `0${active + 1}` : active + 1}.</span></div>
+        <div className="project-slide__count bg-count animating"><span className="count">{((active + 1).toString().length < 2) ? `0${active + 1}` : active + 1}.</span></div>
       </ReactScrollWheelHandler>
     </div>
   )
