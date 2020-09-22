@@ -3,15 +3,29 @@
     height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+
+    @media (max-width: 375px) {
+      height: 80vh;
+    }
 
     .project__logo {
       margin: auto;
-      height: 20vh;
+      max-width: 40vw;
+      // max-height: 20vh;
+      overflow: visible !important;
       grid-row: 1;
 
       img {
         height: 100%;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        // max-height: 30vh;
+        max-width: none;
+        width: calc(100vw - 50px);
+        // border: 1px red solid;
       }
     }
 
@@ -25,24 +39,36 @@
         width: 100%;
       }
 
+      @media (max-width: 768px) {
+        height: auto;
+        width: auto;
+
+        img {
+          // height: 100%;
+          width: 100%;
+        }
+      }
+
       &.phone {
-        // width: 40%;
         display: flex;
         justify-content: center;
-        // margin: 3.5rem 0 0 0;
         position: relative;
         height: 55vh;
-        // border: 1px red solid;
         width: 50vw;
-
-        .gatsby-image-wrapper {
-          // position: absolute !important;
-          // width: 80%;
-          // border: 1px red solid;
-        }
 
         img {
           width: 100%;
+        }
+
+        @media (max-width: 768px) {
+          height: 35vh;
+          width: auto;
+          margin: 0 25px;
+
+          img {
+            // height: 100%;
+            width: 100%;
+          }
         }
 
         .gatsby-image-wrapper:nth-child(1) {
@@ -63,19 +89,34 @@
   }
 
   .project__info {
-    width: 1100px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 5rem 0;
     display: grid;
     grid-template-columns: 1fr 2fr .5fr;
 
+    @media (max-width: 768px) {
+      padding: 50px 0;
+    }
+
     .project__sub-heading {
       margin: 0 3.5rem 0 0;
+
+      @media (max-width: 768px) {
+        margin: 0 0 50px 0;
+        font-size: 2.25em;
+        line-height: 1.1em;
+      }
     }
 
     .project__description {
-      margin: 0;
+      margin: auto 0 0 0;
       grid-column: span 2;
+
+
+      @media (max-width: 768px) {
+        margin: 25px 0 0 0;
+      }
     }
 
     .project__info-items {
@@ -84,8 +125,27 @@
       grid-row: 2;
       display: flex;
 
+      @media (max-width: 768px) {
+        margin: 0;
+        grid-column: 1;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 12.5px;
+      }
+
       .project__info-item {
         margin: 0 3.5rem 0 0;
+
+        @media (max-width: 768px) {
+          margin: 0;
+        }
+
+        @media (max-width: 768px) {
+          &:last-child {
+            grid-column: span 2;
+          }
+        }
 
         h3 {
           margin: 0 0 .75rem 0;
@@ -118,18 +178,33 @@
         }
       }
     }
-  }
 
-  .project__btns {
-    margin: 3.5rem 0 0 auto;
-    grid-column: 3;
-    grid-row: 2;
+    .project__btns {
+      margin: 3.5rem 0 0 auto;
+      grid-column: 3;
+      grid-row: 2;
+
+      @media (max-width: 768px) {
+        grid-column: 1;
+        grid-row: auto;
+        margin: 50px 0 25px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      margin: 0 25px;
+    }
   }
 }
 
 .project__images {
   padding: 2.25rem 0;
   background: $white;
+
+  @media (max-width: 768px) {
+    margin: 0 25px;
+  }
 
   .project__img {
     padding: 2.25rem 0;
@@ -138,6 +213,10 @@
 
     img {
       width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      padding: 12.5px 0;
     }
   }
 
@@ -149,19 +228,35 @@
     }
   }
 
-.project__phone-images {
-  display: flex;
-  justify-content: space-between;
-  padding: 2.25rem 0;
-  max-width: 1300px;
-  margin: 0 auto;
+  .project__phone-images {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.25rem 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    grid-gap: 2.25rem;
 
-  .project__img {
-    max-width: 375px;
-    margin: 0;
+    &.grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-gap: 25px;
+
+      &.grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+
+
+    .project__img {
+      max-width: 375px;
+    }
   }
-}
-  
+
 }
 
 .project__videos {
@@ -173,6 +268,15 @@
     max-width: 1300px;
     margin: 0 auto;
   }
+
+  @media (max-width: 768px) {
+    padding: 50px 25px;
+
+    .project__vid {
+      width: 100%;
+    }
+  }
+
 }
 
 .tech-icon-tooltip {

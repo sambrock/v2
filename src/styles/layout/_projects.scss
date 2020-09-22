@@ -4,15 +4,20 @@
   .project-slide {
     opacity: 0;
     display: none;
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
     cursor: pointer;
 
     &.active {
       opacity: 1;
       display: block;
+    }
+    
+    @media (max-width: 768px) {
+      display: block;
+      opacity: 1;
+      // width: 100vw;
+      box-sizing: border-box;
+      height: 80vh;
+      margin: 0 0 25px 0;
     }
 
     .project-slide__logo {
@@ -21,11 +26,13 @@
       position: absolute;
       top: 0;
       right: 0;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
 
       img {
         height: 100vh;
+      }
+
+      @media (max-width: 1498px) {
+        display: none;
       }
     }
 
@@ -36,23 +43,25 @@
       grid-template-rows: 70fr 1fr;
       box-sizing: border-box;
       z-index: 10;
-      // position: absolute;
-      // right: 0;
+
+      @media (max-width: 768px) {
+        height: 80vh;
+      }
 
       .project-slide__img {
         margin: 3.5rem 0 0 3.5rem;
         width: calc(100% + 35px);
-        // border: 1px blue solid;
 
         img {
           height: 100%;
         }
 
+        @media (max-width: 768px) {
+          margin: 25px 0 0 25px;
+        }
+
         &.phone {
-          // width: 40%;
           display: flex;
-          // justify-content: flex-start;
-          // margin: 3.5rem 0 0 0;
           position: relative;
 
           .gatsby-image-wrapper {
@@ -87,12 +96,14 @@
         z-index: 4;
         position: relative;
 
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+          margin: 25px ;
+        }
+
         .project-slide__title {
-          font-size: 2.5em;
-          margin: 0 24px 0 0;
           grid-column: 1;
           grid-row: 1;
-          @include title();
         }
 
         .project-slide__short-desc {
@@ -102,6 +113,7 @@
           margin: .4rem 0;
           grid-column: 1;
           grid-row: 2;
+  
         }
 
         .project-slide__count {
@@ -111,6 +123,10 @@
           grid-column: 3;
           grid-row: 1 / span 2;
           @include count();
+          
+          @media (max-width: 768px) {
+            display: none;
+          }
 
           &.animating {
             color: $greyTransparent;
@@ -128,57 +144,6 @@
   }
 }
 
-.scroll-indicator {
-  // grid-column: 2;
-  grid-row: 1 / span 2;
-  font-size: .8em;
-  @include subTitle();
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  bottom: -30px;
-  transform: translate(-50%, -50%);
-
-  &.hide {
-    display: none;
-  }
-
-  .indicator {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    background: $whiteTransparentBG;
-    height: 35px;
-    margin-top: 11px;
-
-    span {
-      position: absolute;
-      height: 60%;
-      width: 100%;
-      background: $white;
-      left: 0px;
-      top: 0px;
-      margin: 0px;
-      animation: scroll 1s infinite linear;
-
-      @keyframes scroll {
-        0% {
-          transform: translateY(0%)
-        }
-
-        50% {
-          transform: translateY(100%)
-        }
-
-        100% {
-          transform: translateY(0%)
-        }
-      }
-    }
-  }
-}
-
 .bg-count {
   position: absolute;
   bottom: 2.7rem;
@@ -187,4 +152,8 @@
   color: $greyTransparent;
   z-index: -10;
   transition: color .5 ease-in-out;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

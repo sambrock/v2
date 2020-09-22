@@ -40,10 +40,32 @@ h3 {
   font-family: $bold;
 }
 
-h1 {
+h1  {
   font-size: 3.5rem;
   line-height: 3.8rem;
   letter-spacing: -.7px;
+
+  @media (min-width: 2160px) {
+    font-size: 5em;
+    line-height: 5.3rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.7rem;
+    line-height: 3rem;
+    letter-spacing: -.7px;
+  }
+}
+
+h2 {
+  font-size: 2.5em;
+  line-height: 2.7rem;
+  margin: 0 24px 0 0;
+
+  @media (min-width: 2160px) {
+    font-size: 3.4em;
+    line-height: 5.3rem;
+  }
 }
 
 h3 {
@@ -54,6 +76,10 @@ h3 {
 
 p {
   line-height: 1.4em;
+          
+  @media (min-width: 2160px) {
+    font-size: 1.2em;
+  }
 }
 
 @mixin title {

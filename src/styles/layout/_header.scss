@@ -1,0 +1,18 @@
+header {
+  position: fixed;
+  padding: 3.5rem;
+  z-index: 10;
+
+  .logo {
+    height: 4.5em;
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 25px;
+
+    .logo {
+      height: 3.5em;
+    }
+  }
+}

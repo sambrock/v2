@@ -8,62 +8,9 @@ body {
   color: $grey;
   -webkit-font-smoothing: antialiased !important;
 
-  header {
-    position: fixed;
-    padding: 3.5rem;
-    z-index: 10;
-
-    .logo {
-      height: 4.5em;
-      user-select: none;
-    }
+  .tl-edges {
+    overflow: hidden;
   }
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  height: calc(100vh);
-  width: 100vw;
-  overflow: hidden;
-
-  .overview,
-  .projects {
-    width: 50vw;
-  }
-
-  .overview {
-    display: flex;
-    flex-direction: column;
-    padding: 3.5rem;
-
-    .intro {
-      align-items: middle;
-      margin: auto 0;
-
-      h1 {
-        margin: 0 0 .5em 0;
-      }
-
-      p {
-        max-width: 25vw;
-      }
-    }
-
-    .social-links {
-      a {
-        margin: 0 1rem 0 0;
-
-        img {
-          height: 24px;
-        }
-      }
-    }
-  }
-
-
-
 }
 
 .btn {
@@ -82,20 +29,74 @@ body {
   color: $greyTransparent3;
 }
 
-.project-img {
-  position: absolute;
-  right: -12%;
-
-  top: 50%;
-  margin-top: -38vh;
-
-  img {
-    height: 75vh;
-  }
-}
-
 a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+}
+
+.scroll-indicator {
+  // grid-column: 2;
+  grid-row: 1 / span 2;
+  font-size: .8em;
+  @include subTitle();
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  bottom: -30px;
+  transform: translate(-50%, -50%);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  .indicator {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: $whiteTransparentBG;
+    height: 35px;
+    margin-top: 11px;
+
+    span {
+      position: absolute;
+      height: 60%;
+      width: 100%;
+      background: $white;
+      left: 0px;
+      top: 0px;
+      margin: 0px;
+      animation: scroll 1s infinite linear;
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(0%)
+        }
+
+        50% {
+          transform: translateY(100%)
+        }
+
+        100% {
+          transform: translateY(0%)
+        }
+      }
+    }
+  }
+}
+
+.page__mask {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: $white;
+  z-index: 100;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
