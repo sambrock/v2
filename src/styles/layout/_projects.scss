@@ -162,15 +162,3 @@
     display: none;
   }
 }
-
-.project-slide {
-  .project-slide__mask {
-    visibility: hidden;
-  }
-
-  &.active {
-    .project-slide__mask {
-      visibility: visible;
-    }
-  }
-}
