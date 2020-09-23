@@ -2,17 +2,37 @@ header {
   position: fixed;
   padding: 3.5rem;
   z-index: 10;
+  transition: all .2s linear;
 
   .logo {
     height: 4.5em;
+    fill: $grey;
     user-select: none;
   }
+  
+  &.white {
+    .logo {
+      fill: $white;
+    }
+  }
+
+  @media (max-width: 768px) {}
+}
+
+header {
+
 
   @media (max-width: 768px) {
-    padding: 25px;
+    width: 100vw;
+    padding: 12.5px 25px;
 
     .logo {
       height: 3.5em;
+    }
+
+    &.bg {
+      background: $whiteTransparent;
+
     }
   }
 }

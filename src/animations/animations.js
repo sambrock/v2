@@ -54,7 +54,7 @@ export const projectSlideAnimateHoverOut = () => {
 export const projectSlideLinkAnimate = (height, width) => {
   const tl = new TimelineMax({ paused: true });
 
-  tl.to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img', 1, { marginLeft: '100vw', ease: "Power2.easeInOut"}, 0)
+  tl.to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img', 1, { marginLeft: '100vw', ease: "Power2.easeInOut" }, 0)
     .to('.project-slide__logo', 1, { opacity: 0, ease: "Power2.easeInOut" }, 0)
     .to('.overview', .3, { opacity: 0, ease: "Power2.easeInOut" }, 0.5)
     .to('.project-slide.active .project-slide__mask', .7, { width: width, float: 'right', ease: "Power2.easeInOut" }, .3)
@@ -80,6 +80,22 @@ export const maskAnimate = () => {
 
   tl.fromTo('.page__mask', 1, { webkitClipPath: polygonIn.down, ease: "Power2.easeInOut" }, { webkitClipPath: polygonIn.end, ease: "Power2.easeInOut" }, 0)
     .fromTo('.page__mask', 1, { webkitClipPath: polygonIn.end, ease: "Power2.easeInOut" }, { webkitClipPath: polygonIn.up, ease: "Power2.easeInOut" })
+
+  return tl;
+}
+
+export const headerAnimateUp = () => {
+  const tl = new TimelineMax({ paused: true });
+
+  tl.to('.header', .1, { y: -80, ease: "Power3.easeInOut" }, 0)
+
+  return tl;
+}
+
+export const headerAnimateDown = () => {
+  const tl = new TimelineMax({ paused: true });
+
+  tl.to('.header', .1, { y: 0, ease: "Power3.easeInOut" }, 0)
 
   return tl;
 }
