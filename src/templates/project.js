@@ -11,7 +11,7 @@ import ProjectImages from "../components/project-images";
 export default function Project({ data, transitionStatus }) {
   const [project, setProject] = useState();
   const [width, height] = useWindowSize();
-  
+
   useEffect(() => {
     setProject(data.projects.edges[0].node)
   }, [data])
@@ -39,9 +39,7 @@ export default function Project({ data, transitionStatus }) {
           )}
         </div>
         <div className="project__info">
-          <h2 className="project__sub-heading">{project.shortDescription}</h2>
-          <p className="project__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div className="project__info-items">
+          <div className="project__mini-info">
             <div className="project__info-item">
               <h3 style={{ color: project.color }}>Completed</h3>
               <span>{project.completed}</span>
@@ -59,11 +57,15 @@ export default function Project({ data, transitionStatus }) {
               </div>
             </div>
           </div>
-          <div className="project__btns">
-            <a className="project__launch-btn btn" target="__blank" style={{ color: project.color, border: `1px ${project.color} solid` }} href={project.url}>Launch project</a>
-            {project.github && (
-              <a href={project.github} target="__blank" className="project__github-link btn no-border">View on GitHub</a>
-            )}
+          <div className="project__txt">
+            <h2 className="project__sub-heading">{project.shortDescription}</h2>
+            <p className="project__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div className="project__btns">
+              <a className="project__launch-btn btn" target="__blank" style={{ color: project.color, border: `1px ${project.color} solid` }} href={project.url}>Launch project</a>
+              {project.github && (
+                <a href={project.github} target="__blank" className="project__github-link btn no-border">View on GitHub</a>
+              )}
+            </div>
           </div>
         </div>
         <ProjectImages title={project.title} />
