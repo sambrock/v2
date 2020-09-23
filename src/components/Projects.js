@@ -25,9 +25,13 @@ export default function Projects({ data, setAccent, isMobile }) {
     setAnimate({ index: active, type: 'out', direction: scroll });
 
     setTimeout(() => {
-      setActive(next);
       setAnimate({ index: next, type: 'in', direction: scroll });
-    }, 600)
+    }, 650)
+
+    // Delay to prevent glitchy animation (due to GSAP fromTo)
+    setTimeout(() => {
+      setActive(next);
+    }, 690)
   }
 
   useEffect(() => {
