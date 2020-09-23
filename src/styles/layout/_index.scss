@@ -48,6 +48,10 @@
 
       p {
         width: 55%;
+        
+        @media (min-width: 2160px) {
+          font-size: 1.1em;
+        }
       }
     }
   }
