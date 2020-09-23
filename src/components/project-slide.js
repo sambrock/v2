@@ -1,7 +1,6 @@
-import React, { createRef, useEffect, useRef, useState } from 'react'
-import { Link } from 'gatsby';
+import React, { useEffect } from 'react'
 import { useWindowSize } from '../hooks/useWindowSize';
-import { projectSlideAnimateIn, projectSlideAnimateOut, projectSlideAnimateHoverIn, projectSlideAnimateHoverOut, projectSlideLinkAnimate, projectSlideLinkMobileAnimate } from '../animations/animations';
+import { projectSlideAnimateIn, projectSlideAnimateOut, projectSlideAnimateHoverIn, projectSlideAnimateHoverOut, projectSlideLinkAnimate, maskAnimate } from '../animations/animations';
 import Image from './image';
 import TransitionLink from "gatsby-plugin-transition-link";
 
@@ -9,23 +8,20 @@ import LogoT from '../images/logo-g-t.svg';
 import LogoWT from '../images/logo-w-t.svg';
 
 export default function ProjectSlide({ project, isActive, animate, current, indicator }) {
-  const [activeEl, setActiveEl] = useState(null);
   const [width, height] = useWindowSize();
   const isMobile = width < 768;
 
-  let projectSlide = useRef(null);
-
   useEffect(() => {
-     projectSlideAnimateHoverOut().play();
+    projectSlideAnimateHoverOut().play();
 
     if (animate.type === 'in' && !isMobile) projectSlideAnimateIn(animate.direction).play();
     if (animate.type === 'out' && !isMobile) projectSlideAnimateOut(animate.direction).play();
   }, [isActive, animate, isMobile])
 
   const handleProjectLink = () => {
-    !isMobile ?  projectSlideLinkAnimate(height, width).play() : projectSlideLinkMobileAnimate().play();
+    !isMobile ? projectSlideLinkAnimate(height, width).play() : maskAnimate().play();
   }
-    
+
   return (
     <TransitionLink to={`/${project.title.toLowerCase()}`} exit={{ trigger: ({ exit, node }) => handleProjectLink(), length: 1 }} entry={{ delay: 1 }} >
       <div className={`project-slide ${isActive ? 'active' : ''}`} >
