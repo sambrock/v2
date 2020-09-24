@@ -12,7 +12,9 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
   const isMobile = width < 768;
 
   useEffect(() => {
-    projectSlideAnimateHoverOut().play();
+    // projectSlideAnimateHoverOut().play();
+
+    if(!animate) return;
 
     if (animate.type === 'in' && !isMobile) projectSlideAnimateIn(animate.direction).play();
     if (animate.type === 'out' && !isMobile) projectSlideAnimateOut(animate.direction).play();
@@ -26,7 +28,7 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
     <TransitionLink to={`/${project.title.toLowerCase()}`} exit={{ trigger: ({ exit, node }) => handleProjectLink(), length: 1 }} entry={{ delay: 1 }} >
       <div className={`project-slide ${isActive ? 'active' : ''}`} >
         <div className="project-slide__logo"><img src={LogoT} /></div>
-        <div className="project-slide__mask" style={{ height: `${height}px` }} >
+        <div className="project-slide__mask" style={{ height: `${height}px`, clipPath: !isMobile ? 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' : '' }} >
           <div className="project-slide__logo"><img src={LogoWT} /></div>
           <div className="project-slide__bg" style={{ background: `${project.color}` }} onMouseEnter={() => projectSlideAnimateHoverIn().play()} onMouseLeave={() => projectSlideAnimateHoverOut().play()}>
             {project.type === 'web' && (

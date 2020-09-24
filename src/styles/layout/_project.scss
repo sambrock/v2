@@ -6,13 +6,12 @@
     grid-template-rows: 2fr 1fr;
 
     @media (max-width: 375px) {
-      height: 80vh;
+      height: 90vh;
     }
 
     .project__logo {
       margin: auto;
       max-width: 40vw;
-      // max-height: 20vh;
       overflow: visible !important;
       grid-row: 1;
 
@@ -22,10 +21,8 @@
       }
 
       @media (max-width: 768px) {
-        // max-height: 30vh;
         max-width: none;
         width: calc(100vw - 50px);
-        // border: 1px red solid;
       }
     }
 

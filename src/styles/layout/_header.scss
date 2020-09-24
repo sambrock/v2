@@ -9,7 +9,7 @@ header {
     fill: $grey;
     user-select: none;
   }
-  
+
   &.white {
     .logo {
       fill: $white;
@@ -20,8 +20,6 @@ header {
 }
 
 header {
-
-
   @media (max-width: 768px) {
     width: 100vw;
     padding: 12.5px 25px;
@@ -32,7 +30,6 @@ header {
 
     &.bg {
       background: $whiteTransparent;
-
     }
   }
 }
