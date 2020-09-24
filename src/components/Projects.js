@@ -6,14 +6,17 @@ export default function Projects({ data, setAccent, isMobile }) {
   const [projects, setProjects] = useState(null);
   const [active, setActive] = useState(0);
   const [animate, setAnimate] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(null);
+  const [disableAnimation, setDisableSlideAniamtion] = useState(false);
 
   useEffect(() => {
     setProjects(data)
   }, [data])
 
   const handleNavigation = (scroll) => {
-    if(isMobile) return;
-    
+    if (isMobile || disableAnimation) return;
+    setIsAnimating(true);
+
     let next = active;
 
     if (scroll === 'up') next--;
@@ -32,7 +35,11 @@ export default function Projects({ data, setAccent, isMobile }) {
     setTimeout(() => {
       setActive(next);
     }, 690)
-  }
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1200)
+  };
 
   useEffect(() => {
     if (projects) setAccent(projects[active].node.color);
@@ -52,6 +59,8 @@ export default function Projects({ data, setAccent, isMobile }) {
               animate={animate}
               current={active + 1}
               indicator={index === 0}
+              isAnimating={isAnimating}
+              disableSlideAnimation={setDisableSlideAniamtion}
             />
           )
         })}

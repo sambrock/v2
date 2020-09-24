@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useWindowSize } from '../hooks/useWindowSize';
 import { projectSlideAnimateIn, projectSlideAnimateOut, projectSlideAnimateHoverIn, projectSlideAnimateHoverOut, projectSlideLinkAnimate, maskAnimate } from '../animations/animations';
 import Image from './image';
@@ -7,7 +7,10 @@ import TransitionLink from "gatsby-plugin-transition-link";
 import LogoT from '../images/logo-g-t.svg';
 import LogoWT from '../images/logo-w-t.svg';
 
-export default function ProjectSlide({ project, isActive, animate, current, indicator }) {
+export default function ProjectSlide({ project, isActive, animate, current, indicator, isAnimating, disableSlideAnimation }) {
+  const [disableLink, setDisableLink] = useState(true);
+  // const [disableAnimation, setDisableAnimation] = useState(true);
+  
   const [width, height] = useWindowSize();
   const isMobile = width < 768;
 
@@ -16,14 +19,20 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
 
     if (animate.type === 'in' && !isMobile) projectSlideAnimateIn(animate.direction).play();
     if (animate.type === 'out' && !isMobile) projectSlideAnimateOut(animate.direction).play();
+    
   }, [isActive, animate, isMobile])
 
+  useEffect(() => {
+    isAnimating ? setDisableLink(true) : setDisableLink(false);
+  }, [isAnimating])
+
   const handleProjectLink = () => {
+    disableSlideAnimation(true);
     !isMobile ? projectSlideLinkAnimate(height, width).play() : maskAnimate().play();
   }
 
   return (
-    <TransitionLink to={`/${project.title.toLowerCase()}`} exit={{ trigger: ({ exit, node }) => handleProjectLink(), length: 1 }} entry={{ delay: 1 }} >
+    <TransitionLink to={!disableLink ? `/${project.title.toLowerCase()}` : '#'} exit={{ trigger: ({ exit, node }) => handleProjectLink(), length: 1 }} entry={{ delay: 1 }} >
       <div className={`project-slide ${isActive ? 'active' : ''}`} >
         <div className="project-slide__logo"><img src={LogoT} /></div>
         <div className="project-slide__mask" style={{ height: `${height}px`, clipPath: !isMobile ? 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)' : '' }} >
