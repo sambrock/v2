@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <header className={`header ${hide ? 'hide' : ''} ${bg ? 'bg' : ''}`}>
-      <TransitionLink to="/" exit={{ trigger: ({ exit, node }) => maskAnimateHome().play(), length: 1 }} entry={{ delay: 1 }}>
+      <TransitionLink to="/" exit={{ trigger: () => maskAnimateHome().play(), length: 1 }} entry={{ delay: 1 }}>
         <Logo classes="logo" />
       </TransitionLink>
     </header>

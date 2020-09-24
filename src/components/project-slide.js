@@ -12,8 +12,6 @@ export default function ProjectSlide({ project, isActive, animate, current, indi
   const isMobile = width < 768;
 
   useEffect(() => {
-    // projectSlideAnimateHoverOut().play();
-
     if(!animate) return;
 
     if (animate.type === 'in' && !isMobile) projectSlideAnimateIn(animate.direction).play();

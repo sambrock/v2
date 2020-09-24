@@ -6,7 +6,7 @@ import Dribbble from '../images/social/dribbble.svg'
 import Behance from '../images/social/behance.svg'
 import Twitter from '../images/social/twitter.svg'
 
-export default function socialLinks() {
+export default function SocialLinks() {
   return (
     <div className="social-links">
       <a href={`https://github.com/SamBrock`} target="_blank"><img src={GitHub} /></a>
