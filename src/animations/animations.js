@@ -58,7 +58,7 @@ export const projectSlideLinkAnimate = (height, width) => {
 
   tl.to('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img', 1, { marginLeft: '100vw', ease: "Power2.easeInOut" }, 0)
     .to('.project-slide__logo', 1, { opacity: 0, ease: "Power2.easeInOut" }, 0)
-    .to('.overview', .3, { opacity: 0, ease: "Power2.easeInOut" }, 0.5)
+    .to(['.overview', 'footer'], .3, { opacity: 0, ease: "Power2.easeInOut" }, 0.5)
     .to('.project-slide.active .project-slide__mask', .7, { width: width, float: 'right', ease: "Power2.easeInOut" }, .3)
     .to('.scroll-indicator', .4, { opacity: 0, y: '30', ease: "Power2.easeInOut" }, 0)
     .to('.project-slide__count ', .4, { opacity: 0, y: '-30', ease: "Power2.easeInOut" }, 0)
@@ -124,7 +124,7 @@ export const indexAnimateIn = () => {
     .staggerFromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__info > div.to-animate', .6, { opacity: 0, y: '-30', ease: "Power2.easeInOut" }, { opacity: 1, y: '0', ease: "Power2.easeInOut" }, .05, .1)
     .staggerFromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.phone .gatsby-image-wrapper', .6, { y: imgYIn.down, ease: "Power1.easeInOut" }, { y: '0', ease: "Power1.easeInOut" }, 0.1, 0)
     .fromTo('.project-slide.active .project-slide__mask .project-slide__bg .project-slide__img.web', .6, { y: imgYIn.down, ease: "Power1.easeInOut" }, { y: '0', ease: "Power1.easeInOut" }, 0.1, 0)
-    .fromTo('.social-links', .2, { opacity: 0, y: 20, ease: "Power2.easeInOut" }, { opacity: 1, y: 0, ease: "Power2.easeInOut" })
+    .fromTo('footer', .2, { opacity: 0, y: 20, ease: "Power2.easeInOut" }, { opacity: 1, y: 0, ease: "Power2.easeInOut" })
     .to(['.project-slide__logo', '.bg-count'], .3, { opacity: 1 })
 
   return tl;
