@@ -6,6 +6,7 @@ import { useWindowSize } from "../hooks/useWindowSize";
 import { projectPageAnimateIn, animateHeaderColor } from "../animations/animations";
 import ProjectImages from "../components/project-images";
 import { Waypoint } from 'react-waypoint';
+import Footer from "../components/footer";
 
 
 export default function Project({ data, transitionStatus }) {
@@ -17,7 +18,7 @@ export default function Project({ data, transitionStatus }) {
   }, [data])
 
   useEffect(() => {
-    projectPageAnimateIn(height).play();
+    if (transitionStatus === 'entering') projectPageAnimateIn(height).play();
   }, [transitionStatus])
 
   if (!project) return <div></div>;
@@ -69,6 +70,9 @@ export default function Project({ data, transitionStatus }) {
         </div>
       </div>
       <ProjectImages title={project.title} />
+      <Footer> 
+            <span>&#169; {new Date().getFullYear()} Sam Brocklehurst</span>
+      </Footer>
     </main>
   )
 }
