@@ -14,6 +14,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layouts/layout.js`),
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
@@ -28,12 +34,6 @@ module.exports = {
       resolve: 'gatsby-plugin-transition-link',
       options: {
         layout: require.resolve(`./src/components/layouts/layout.js`),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layouts/layout.js`),
       },
     }
   ],
