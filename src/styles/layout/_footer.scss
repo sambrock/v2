@@ -1,0 +1,44 @@
+footer {
+  padding: 0 0 3.5rem 3.5rem;
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+
+  .social-links {
+    a {
+      margin: 0 .75rem 0 0;
+    }
+
+    img {
+      height: 24px;
+    }
+  }
+
+  span {
+    justify-self: center;
+    margin: 0 3.5rem 0 0;
+    font-size: .9em;
+    color: $greyTransparent3;
+  }
+}
+
+
+@media (max-width: 768px) {
+  footer {
+    padding: 0 0 25px;
+    display: flex;
+    flex-direction: column;
+
+    .social-links {
+      margin: 0 auto;
+
+      a:last-child {
+        margin: 0;
+      }
+    }
+
+    span {
+      margin: 12.5px auto 0;
+    }
+  }
+}
