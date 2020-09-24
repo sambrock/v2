@@ -14,13 +14,15 @@ body {
 }
 
 .btn {
-  color: $grey;
-  padding: 12px 14px;
+  padding: .75rem 1rem;
   display: inline-block;
-  margin-top: 12px;
   @include btn();
   transition: all .5 ease;
-  font-size: .9em;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: $white;
+  box-sizing: border-box;
 }
 
 .btn.no-border {
@@ -97,6 +99,6 @@ a {
   top: 0;
   left: 0;
   background: $white;
-  z-index: 100;
+  z-index: 9;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
