@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import TransitionLink from "gatsby-plugin-transition-link";
-import { maskAnimate } from '../animations/animations';
 import { useScrollDirection } from '../hooks/useScrollDirection';
-import { headerAnimateUp, headerAnimateDown } from '../animations/animations'
-
-// import Logo from '../images/logo.svg'
+import { headerAnimateUp, headerAnimateDown, maskAnimateHome } from '../animations/animations'
 import Logo from '../components/images/logo';
 import { useWindowSize } from '../hooks/useWindowSize';
 
@@ -24,7 +21,7 @@ export default function Header() {
 
   useEffect(() => {
     function onScroll() {
-      setBg(window.pageYOffset > (height * 0.8 - 85));
+      setBg(window.pageYOffset > (height * 0.9));
     }
 
     return window.addEventListener("scroll", onScroll);
@@ -37,7 +34,7 @@ export default function Header() {
 
   return (
     <header className={`header ${hide ? 'hide' : ''} ${bg ? 'bg' : ''}`}>
-      <TransitionLink to="/" exit={{ trigger: ({ exit, node }) => maskAnimate().play(), length: 1 }} entry={{ delay: 1 }}>
+      <TransitionLink to="/" exit={{ trigger: ({ exit, node }) => maskAnimateHome().play(), length: 1 }} entry={{ delay: 1 }}>
         <Logo classes="logo" />
       </TransitionLink>
     </header>
