@@ -1,31 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby';
-import Layout from '../components/layouts/layout';
 import Projects from '../components/projects';
 import SocialLinks from '../components/social-links';
 
 import '../styles/main.scss';
+import { indexAnimateIn } from '../animations/animations';
 
-export default function Index({ data }) {
+export default function Index({ data, children, transitionStatus, entry, exit }) {
   const [accentColor, setAccentColor] = useState();
   const isMobile = window.innerWidth < 768;
 
+  useEffect(() => {
+    setTimeout(() => {
+      indexAnimateIn().play();
+    }, 100)
+  }, [])
+
   return (
-    <Layout>
-      <div className="index">
-        <section className="overview">
-          <div className="intro">
-            <h1>Hi, <br /> I'm Sam, <br /> web developer.</h1>
-            <p>I use modern web technologies to create engaging online
-            experiences. I'm currently a Web Technologies student at the University of
-            Huddersfield, graduating in 2021. </p>
-            <a className="btn primary-bg" style={{ color: accentColor, border: `1px solid ${accentColor}` }} href="mailto:sambrocklehurst1998@gmail.com">Get in touch</a>
-          </div>
-        </section>
-        <SocialLinks />
-        <Projects data={data.projects.edges} setAccent={(color) => setAccentColor(color)} isMobile={isMobile} />
-      </div>
-    </Layout>
+    <div className="index">
+      <section className="overview">
+        <div className="intro">
+          <div className="intro__name"><h1>Sam Brocklehurst</h1><div className="txt-mask"></div></div>
+          <div className="intro__description"><h2>I design and develop web apps.</h2><div className="txt-mask"></div></div>
+          <div className="intro__btn"><a className="btn primary-bg" style={{ color: accentColor, border: `1px solid ${accentColor}` }} href="mailto:sambrocklehurst1998@gmail.com">Get in touch</a><div className="txt-mask"></div></div>
+        </div>
+      </section>
+      <SocialLinks />
+      <Projects data={data.projects.edges} setAccent={(color) => setAccentColor(color)} isMobile={isMobile} />
+    </div>
   )
 }
 
