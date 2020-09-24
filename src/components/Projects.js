@@ -5,7 +5,7 @@ import ProjectSlide from './project-slide';
 export default function Projects({ data, setAccent, isMobile }) {
   const [projects, setProjects] = useState(null);
   const [active, setActive] = useState(0);
-  const [animate, setAnimate] = useState({ index: active, type: 'in', direction: 'down' });
+  const [animate, setAnimate] = useState(null);
 
   useEffect(() => {
     setProjects(data)
