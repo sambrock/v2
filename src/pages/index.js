@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby';
 import Projects from '../components/projects';
-import SocialLinks from '../components/social-links';
+import Footer from '../components/footer';
 
 import '../styles/main.scss';
 import { indexAnimateIn } from '../animations/animations';
 
-export default function Index({ data, children, transitionStatus, entry, exit }) {
+export default function Index({ data }) {
   const [accentColor, setAccentColor] = useState();
   const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     setTimeout(() => {
-      indexAnimateIn().play();
-    }, 100)
+      indexAnimateIn().play()
+    }, [100])
   }, [])
 
   return (
@@ -25,7 +25,7 @@ export default function Index({ data, children, transitionStatus, entry, exit })
           <div className="intro__btn"><a className="btn primary-bg" style={{ color: accentColor, border: `1px solid ${accentColor}` }} href="mailto:sambrocklehurst1998@gmail.com">Get in touch</a><div className="txt-mask"></div></div>
         </div>
       </section>
-      <SocialLinks />
+      <Footer />
       <Projects data={data.projects.edges} setAccent={(color) => setAccentColor(color)} isMobile={isMobile} />
     </div>
   )
