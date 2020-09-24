@@ -9,7 +9,7 @@
     grid-row: 1;
   }
 
-  .social-links {
+  footer {
     grid-column: 1;
     grid-row: 2;
     height: 24px
@@ -25,7 +25,7 @@
     grid-template-rows: auto;
     height: auto;
 
-    .social-links {
+    footer {
       grid-row: 3;
     }
   }
@@ -61,19 +61,6 @@
     }
   }
 
-  .social-links {
-    padding: 0 0 3.5rem 3.5rem;
-    opacity: 0;
-
-    a {
-      margin: 0 1rem 0 0;
-
-      img {
-        height: 24px;
-      }
-    }
-  }
-
   @media (max-width: 768px) {
     .overview {
       margin-top: 0;
@@ -86,15 +73,6 @@
             font-size: 1em;
           }
         }
-      }
-    }
-
-    .social-links {
-      padding: 0 0 25px;
-      margin: 0 auto;
-
-      a:last-child {
-        margin: 0;
       }
     }
   }
