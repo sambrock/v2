@@ -5,10 +5,12 @@ import Footer from '../components/footer';
 
 import '../styles/main.scss';
 import { indexAnimateIn } from '../animations/animations';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 export default function Index({ data }) {
   const [accentColor, setAccentColor] = useState();
-  const isMobile = window.innerWidth < 768;
+  const [width, height] = useWindowSize();
+  const isMobile = height < 768;
 
   useEffect(() => {
     setTimeout(() => {

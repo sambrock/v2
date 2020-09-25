@@ -11,7 +11,7 @@ export default function Header() {
 
   const [width, height] = useWindowSize();
   const scrollDir = useScrollDirection();
-  const isMobile = window.innerWidth < 768;
+  const isMobile = height < 768;
 
   useEffect(() => {
     if (scrollDir === 'up') setHide(false);
