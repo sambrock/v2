@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Image from "../components/image";
 import TechList from "../components/tech-list";
 import { useWindowSize } from "../hooks/useWindowSize";
-import { projectPageAnimateIn, animateHeaderColor } from "../animations/animations";
+import { projectPageAnimateIn, animateHeaderColor, projectHeroScroll } from "../animations/animations";
 import ProjectImages from "../components/project-images";
 import { Waypoint } from 'react-waypoint';
 import Footer from "../components/footer";
@@ -11,7 +11,9 @@ import Footer from "../components/footer";
 
 export default function Project({ data, transitionStatus }) {
   const [project, setProject] = useState();
+  const [hideLogo, setHideLogo] = useState(false);
   const [width, height] = useWindowSize();
+  const isMobile = height < 768;
 
   useEffect(() => {
     setProject(data.projects.edges[0].node)
@@ -21,12 +23,27 @@ export default function Project({ data, transitionStatus }) {
     if (transitionStatus === 'entering') projectPageAnimateIn(height).play();
   }, [transitionStatus])
 
+  useEffect(() => {
+    function onScroll() {
+      if (window.pageYOffset < (height / 2)) {
+        setHideLogo(false);
+        if (!isMobile) projectHeroScroll(height);
+      } else {
+        setHideLogo(true);
+      }
+    }
+
+    return window.addEventListener('scroll', onScroll);
+  }, [height, isMobile])
+
   if (!project) return <div></div>;
 
   return (
     <main className={`project`}>
       <div className="project__hero" style={{ background: project.color }}>
-        <Image filename={`project__${project.title}.png`} alt={project.title} classes="project__logo" />
+        <div className="project__logo" style={hideLogo ? { display: 'none' } : { display: 'block' }}>
+          <Image filename={`project__${project.title}.png`} alt={project.title} />
+        </div>
         {project.type === 'web' && (
           <Image filename={`project-slide__${project.title}.png`} alt={project.title} classes="project__mainimg" />
         )}
@@ -70,8 +87,8 @@ export default function Project({ data, transitionStatus }) {
         </div>
       </div>
       <ProjectImages title={project.title} />
-      <Footer> 
-            <span>&#169; {new Date().getFullYear()} Sam Brocklehurst</span>
+      <Footer>
+        <span>&#169; {new Date().getFullYear()} Sam Brocklehurst</span>
       </Footer>
     </main>
   )
