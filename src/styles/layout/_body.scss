@@ -21,7 +21,8 @@ body {
   font-size: .8em;
   text-transform: uppercase;
   letter-spacing: .5px;
-  color: $white;
+  color: $grey;
+  border: 1px $grey solid;
   box-sizing: border-box;
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import ProjectSlide from './project-slide';
 
-export default function Projects({ data, setAccent, isMobile }) {
+export default function Projects({ data, isMobile }) {
   const [projects, setProjects] = useState(null);
   const [active, setActive] = useState(0);
   const [animate, setAnimate] = useState(null);
@@ -40,10 +40,6 @@ export default function Projects({ data, setAccent, isMobile }) {
       setIsAnimating(false);
     }, 1200)
   };
-
-  useEffect(() => {
-    if (projects) setAccent(projects[active].node.color);
-  }, [projects, active])
 
   if (!projects) return <div></div>;
 
