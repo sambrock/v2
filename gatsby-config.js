@@ -6,6 +6,14 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Sam Brocklehurst",
+    description:
+      "Sam Brocklehurst is currently studying Web Technologies at the Univeristy of Huddersifeld, final year.",
+    url: "https://sambrock.net", 
+    image: "/og.png", 
+    twitterUsername: "@sxmbrock",
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -35,6 +43,8 @@ module.exports = {
       options: {
         component: require.resolve(`./src/components/layouts/layout.js`),
       },
-    }
+    },
+    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-robots-txt'
   ],
 }
