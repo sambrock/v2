@@ -17,7 +17,7 @@ export default function Header() {
     if (scrollDir === 'up') setHide(false);
     if (scrollDir === 'down' && hide) setHide(false);
     if (scrollDir === 'down' && !hide) setHide(true);
-  }, [scrollDir])
+  }, [scrollDir, hide])
 
   useEffect(() => {
     function onScroll() {
@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <header className={`header ${hide ? 'hide' : ''} ${bg ? 'bg' : ''}`}>
-      <TransitionLink to="/" exit={{ trigger: () => maskAnimateHome().play(), length: 1 }} entry={{ delay: 1 }}>
+      <TransitionLink to="/" exit={{ trigger: () => maskAnimateHome().play(), length: 1 }} entry={{ delay: 1 }} aria-label="Home">
         <Logo classes="logo" />
       </TransitionLink>
     </header>
